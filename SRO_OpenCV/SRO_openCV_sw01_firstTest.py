@@ -1,4 +1,4 @@
-# SR=_openCV_sw01_firstTest.py
+# SRO_openCV_sw01_firstTest.py
 # ................................
 # Tested by OJ am 15.11.24
 
