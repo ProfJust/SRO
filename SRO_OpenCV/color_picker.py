@@ -5,7 +5,7 @@
 # >python color_picker.py -i Prof_mit_Kugel.jpeg
 import argparse
 import cv2
-import imutils
+import imutils   # ggf. pip install imutils
 import numpy as np
 
 colors = []
@@ -19,7 +19,7 @@ def on_mouse_click(event, x, y, flags, image):
 def on_trackbar_change(position):
     return
 
-# Parse command line arguments
+"""# Parse command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--image", required=True, help="path to the image file")
 parser.add_argument("-l", "--lower", help="HSV lower bounds")
@@ -30,9 +30,11 @@ args = vars(parser.parse_args())
 if args["lower"] and args["upper"]:
   lower = np.fromstring(args["lower"], sep=",")
   upper = np.fromstring(args["upper"], sep=",")
+  """
 
 # Load image, resize to 600 width, and convert color to HSV
-image = cv2.imread(args[r"image"])
+#image = cv2.imread(args[r"image"])
+image = cv2.imread("foto01.jpg")
 image = imutils.resize(image, width=600)
 hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 

@@ -10,7 +10,7 @@
 # > python ball_tracking_edited.py 
 import argparse
 # Parser for command-line options, arguments and sub-commands
-import imutils
+import imutils  # ggf. pip install imutils
 import cv2  # openCV
 
 # ----- Argumente von der Kommandozeile lesen mit argparse ---
