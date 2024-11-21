@@ -3,6 +3,7 @@
 # Tested by OJ am 15.11.24
 
 # ggf. pip install opencv-python
+#      pip install opencv-contrib-python
 import cv2 as cv
 
 # initialisiere WebCam
