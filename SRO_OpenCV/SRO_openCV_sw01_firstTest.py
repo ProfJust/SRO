@@ -5,7 +5,6 @@
 #-------------------------------------
 # ggf. python.exe -m pip install --upgrade pip
 # ggf. pip install opencv-python
-#      Tets
 import cv2 as cv
 
 # initialisiere WebCam
