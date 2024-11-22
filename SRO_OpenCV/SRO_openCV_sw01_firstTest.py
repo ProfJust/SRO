@@ -1,8 +1,11 @@
 # SRO_openCV_sw01_firstTest.py
 # ................................
-# Tested by OJ am 15.11.24
-
+# Tested by OJ am 15.11.24 
+# python 3.12.7
+#-------------------------------------
+# ggf. python.exe -m pip install --upgrade pip
 # ggf. pip install opencv-python
+#      Tets
 import cv2 as cv
 
 # initialisiere WebCam
