@@ -1,6 +1,5 @@
-#pyqt_sw03_hello_world_class.py
+# pyQt6_02_hello_world_class.py
 # Hello World im OO-Style
-#https://pythonprogramminglanguage.com/pyqt5-hello-world/
 #------------------------------------------------------------------
 import sys
 from PyQt6 import QtCore, QtWidgets
