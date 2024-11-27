@@ -7,11 +7,12 @@ import rtde_control  # > pip install ur-rtde  ggf. pip iupdaten mit > python.exe
 import rtde_receive
 import rtde_io
 import robotiq_gripper
+
 import time
 
 ROBOT_IP = "192.168.0.3"
 def log_info(gripper):
-    print(f"Pos: {str(gripper.get_current_position()): >3}  
+    print(f"Pos: {str(gripper.get_current_position()): >3}  "
           f"Open: {gripper.is_open(): <2}  "
           f"Closed: {gripper.is_closed(): <2}  ")
 
