@@ -16,7 +16,7 @@ Last edited: 26.11.2024
 import sys
 from PyQt6.QtCore import Qt
 from PyQt6.QtWidgets import (QWidget, QPushButton, QApplication, QLabel)
-N = 4 #Spielfeldgroesse
+N = 5 #Spielfeldgroesse
 from enum import Enum
 class stateClass (Enum):
         FREI = 0

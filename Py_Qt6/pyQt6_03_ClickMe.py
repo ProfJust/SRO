@@ -16,14 +16,13 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(QSize(300, 200))    
         self.setWindowTitle("PyQt button example - pythonprogramminglanguage.com")
 
-        pybutton = QPushButton('Click me', self)
+        self.pybutton = QPushButton('Click me', self)
+        self.pybutton.resize(100,32)
+        self.pybutton.move(50, 50)     
+        # Signal mit Slot verbinden
+        self.pybutton.clicked.connect(self.clickSlot)          
 
-        pybutton.clicked.connect(self.clickMethod)
-
-        pybutton.resize(100,32)
-        pybutton.move(50, 50)        
-
-    def clickMethod(self):
+    def clickSlot(self):
         print('Clicked Pyqt button.')
 
 if __name__ == "__main__":

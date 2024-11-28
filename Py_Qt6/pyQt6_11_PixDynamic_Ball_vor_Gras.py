@@ -53,7 +53,7 @@ class Ui(QWidget):
         pix = QPixmap("gras.jpg")
         p.drawPixmap(self.rect(), pix)
 
-        # bewgtes Rechteck zeichnen mit Pixmap
+        # bewegtes Rechteck zeichnen mit Pixmap
         pix2 = QPixmap("ball_transparent.png")  # PNG mit Transparenz
         target = QRect(self.pos_x, self.pos_y, 50, 50)  # import QRect
         p.drawPixmap(target, pix2)
@@ -61,6 +61,7 @@ class Ui(QWidget):
     def update(self):
         self.pos_x = self.pos_x + self.speed_x
         self.pos_y = self.pos_y + self.speed_y
+        # Pruefe Rand
         if self.pos_x < 0:
             self.speed_x = -self.speed_x
         if self.pos_x > 600:

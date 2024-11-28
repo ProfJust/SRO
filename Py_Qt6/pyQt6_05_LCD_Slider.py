@@ -30,10 +30,10 @@ class MainWindow(QWidget):
         self.mySlider.valueChanged[int].connect(self.myLcd.display)
 
         # --- zwei PushButtons
-        myPBmore = QPushButton(self)
-        myPBmore.setText('>')
-        myPBmore.setGeometry(0, 0, 40, 40)   # x,y,w,h
-        myPBmore.clicked.connect(self.plus)
+        self.myPBmore = QPushButton(self)
+        self.myPBmore.setText('>')
+        self.myPBmore.setGeometry(0, 0, 40, 40)   # x,y,w,h
+        self.myPBmore.clicked.connect(self.plus)
 
         self.myPBless = QPushButton(self)
         self.myPBless.setText('<')

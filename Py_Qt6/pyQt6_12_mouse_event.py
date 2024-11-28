@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # pyQt6_12_mouse_event.py
 #---------------------------------------
 # Erstellt ein Fenster einem bewegten Streichholz
@@ -72,14 +72,18 @@ class Ui(QWidget):
         #if e.key() == Qt.Key.Key_Escape.value:
         if event.key() == Qt.Key.Key_Left:
             self.keyLeft = True
+            print(' Key Left pressed')
         if event.key() == Qt.Key.Key_Right:
             self.keyRight = True
+            print(' Key Right pressed')
             
     def keyReleaseEvent(self, event): #Methode der QWidget-Klasse
         if event.key() == Qt.Key.Key_Left:
              self.keyLeft = False
+             print(' Key Left released ')
         if event.key() == Qt.Key.Key_Right:
              self.keyRight = False
+             print(' Key Right released')
         event.accept()
     
     def drawFunc(self, event, p):            

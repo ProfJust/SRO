@@ -13,6 +13,7 @@ class HelloWindow(QMainWindow):
         self.setMinimumSize(QSize(240, 80))    
         self.setWindowTitle("WHS - Campus Bocholt")
 
+        # dynamische grid layout 
         centralWidget = QWidget(self)          
         self.setCentralWidget(centralWidget)   
 

@@ -18,8 +18,10 @@ import sys
 from PyQt6.QtCore import (Qt, QTimer)
 from PyQt6.QtWidgets import (QWidget, QPushButton, QApplication, QLabel)
 from PyQt6.QtGui import QPixmap
+WINDOWS_BREITE=1000
 
 class Ui(QWidget):
+    
     #statische Klassenvariablen
     pos_label_x = 20
     
@@ -40,13 +42,13 @@ class Ui(QWidget):
         self.lbl.setPixmap(pix)
             
         #UI-Fenster Konfigurieren
-        self.setGeometry(20, 20,  1000, 500)
+        self.setGeometry(20, 20,  WINDOWS_BREITE, 500)
         self.setWindowTitle('Qt - Pixmap')
         self.show()
         
     def update(self): 
         self.pos_label_x = self.pos_label_x+10
-        if self.pos_label_x > 1000:
+        if self.pos_label_x > WINDOWS_BREITE:
             self.pos_label_x = 0
         self.lbl.move(self.pos_label_x,20)
     

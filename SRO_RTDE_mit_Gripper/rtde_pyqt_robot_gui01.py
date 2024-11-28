@@ -32,7 +32,8 @@ class MainWindow(QMainWindow):
         self.btn_go_yp = QPushButton(' go +y 100mm', self)
         self.btn_go_yp.clicked.connect(self.goSlot_yp)
         self.btn_go_yp.resize(140,30)
-        self.btn_go_yp.move(150, 30)      
+        self.btn_go_yp.move(150, 30)    
+
         self.btn_go_ym = QPushButton(' go -y 100mm', self)
         self.btn_go_ym.clicked.connect(self.goSlot_ym)
         self.btn_go_ym.resize(140,30)
@@ -96,7 +97,12 @@ class MainWindow(QMainWindow):
         # get actual pose
         self.pose = self.rtde_r.getActualTCPPose() 
         # Inverse Kinematic im Roboter
-        self.rtde_c.moveL([self.pose[0], self.pose[1] - 0.1 ,self.pose[2],  self.pose[3], self.pose[4], self.pose[5]], 0.3, 0.1)
+        self.rtde_c.moveL([self.pose[0], 
+                           self.pose[1] - 0.1 ,
+                           self.pose[2],
+                           self.pose[3],
+                           self.pose[4], 
+                           self.pose[5]], 0.3, 0.1)
         # update screen 
         self.getTcpPoseSlot()
     
@@ -105,7 +111,12 @@ class MainWindow(QMainWindow):
         # get actual pose
         self.pose = self.rtde_r.getActualTCPPose() 
         # Inverse Kinematic im Roboter
-        self.rtde_c.moveL([self.pose[0], self.pose[1] + 0.1 ,self.pose[2],  self.pose[3], self.pose[4], self.pose[5]], 0.3, 0.1)
+        self.rtde_c.moveL([self.pose[0],
+                           self.pose[1] + 0.1 ,
+                           self.pose[2],
+                           self.pose[3], 
+                           self.pose[4], 
+                           self.pose[5]], 0.3, 0.1)
         # update screen 
         self.getTcpPoseSlot()
    

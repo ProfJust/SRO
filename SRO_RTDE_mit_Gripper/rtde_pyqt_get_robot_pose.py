@@ -18,29 +18,17 @@ from PyQt6.QtWidgets import QLabel
 
 ROBOT_IP = "192.168.0.3"
 
-"""rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
-actual_q = rtde_r.getActualQ()  # in radian
-print("Aktueller Zustand - Gelenkpositionen in Grad ")
-for arg in actual_q:
-    print(arg *180.0/3.1415927)
-
-pose = rtde_r.getActualTCPPose() 
-# get actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz),
-# where rx, ry and rz is a rotation vector representation of the tool orientation """
-
-
-
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
         self.rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
 
         self.setMinimumSize(QSize(300, 200))    
-        self.setWindowTitle("PyQt button example - pythonprogramminglanguage.com")
-        self.pybutton = QPushButton(' update TCP Pose ', self)
-        self.pybutton.clicked.connect(self.getTcpPoseSlot)
-        self.pybutton.resize(100,32)
-        self.pybutton.move(50, 50)      
+        self.setWindowTitle("SRO ")
+        self.btn_update_pose = QPushButton(' update TCP Pose ', self)
+        self.btn_update_pose.clicked.connect(self.getTcpPoseSlot)
+        self.btn_update_pose.resize(100,32)
+        self.btn_update_pose.move(50, 50)      
 
         self.lbl_pose_x = QLabel(" x ", self)  
         self.lbl_pose_x.resize(30,20)       
@@ -57,18 +45,14 @@ class MainWindow(QMainWindow):
         self.lbl_pose_z.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lbl_pose_z.move(50, 200)
 
-
-    def getTcpPoseSlotod(self):
+    def getTcpPoseSlot(self):
         print('Get Actual TcpPose from Robot')
         self.pose = self.rtde_r.getActualTCPPose() 
         # get actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz),
         # where rx, ry and rz is a rotation vector representation of the tool orientation """
-
-       # ui.lblStatus.setText( str(ui.spielZugNr)+'.Zug ')
         self.lbl_pose_x.setText('x: '+ str(self.pose[0]) )
         self.lbl_pose_x.setText('y: '+ str(self.pose[1]) )
         self.lbl_pose_x.setText('z: '+ str(self.pose[2]) )
-
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
