@@ -41,9 +41,10 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 # --- Create Table  ---
+# Code nur 1mal am Anfang ausführen
 # mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
 # mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))") 
-"""
+
 # --- Insert Into Table ---
 sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 val = ("John", "Highway 21")
@@ -76,15 +77,14 @@ mycursor.executemany(sql, val)
 mydb.commit()
 
 print(mycursor.rowcount, "was inserted.") 
-"""
-"""
+
 # --- Fetch Data from Database ---
 mycursor.execute("SELECT * FROM customers")
 myresult = mycursor.fetchall()
 
 for x in myresult:
   print(x)
-"""
+
 # --- Fetch 2 Columns from Database ---
 mycursor.execute("SELECT name  FROM customers")
 
