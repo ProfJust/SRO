@@ -14,15 +14,16 @@ import mysql.connector
 """
 mydb1 = mysql.connector.connect(
   host="localhost",
-  user="MCT",
+  user="SRO",
   password="youbot"
 )
 
 print(mydb1) 
 
 mycursor1 = mydb1.cursor()
+
 # --- Creating a Database --
-# mycursor.execute("CREATE DATABASE mysrodatabase")
+# mycursor1.execute("CREATE DATABASE sro_db")
 
 # --- Check if Database Exists ---
 mycursor1.execute("SHOW DATABASES")
@@ -33,17 +34,16 @@ for x in mycursor1:
 # --- Connect to Database  ---
 mydb = mysql.connector.connect(
   host="localhost",
-  user="MCT",
+  user="SRO",
   password="youbot",
-  database="mysrodatabase"
+  database="sro_db"
 ) 
 
 mycursor = mydb.cursor()
-"""
 # --- Create Table  ---
 # mycursor.execute("CREATE TABLE customers (name VARCHAR(255), address VARCHAR(255))")
 # mycursor.execute("CREATE TABLE customers (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), address VARCHAR(255))") 
-
+"""
 # --- Insert Into Table ---
 sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 val = ("John", "Highway 21")
@@ -77,21 +77,21 @@ mydb.commit()
 
 print(mycursor.rowcount, "was inserted.") 
 """
-
-"""# --- Fetch Data from Database ---
+"""
+# --- Fetch Data from Database ---
 mycursor.execute("SELECT * FROM customers")
 myresult = mycursor.fetchall()
 
 for x in myresult:
-  print(x)"""
-
-"""# --- Fetch 2 Columns from Database ---
-mycursor.execute("SELECT name, address FROM customers")
+  print(x)
+"""
+# --- Fetch 2 Columns from Database ---
+mycursor.execute("SELECT name  FROM customers")
 
 myresult = mycursor.fetchall()
 
 for x in myresult:
-  print(x) """
+  print(x) 
 
 
 #--- Select record(s) where the address is "Park Lane 38": result: ---
