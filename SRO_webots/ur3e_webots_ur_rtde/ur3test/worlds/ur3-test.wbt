@@ -1,0 +1,40 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/universal_robots/protos/UR3e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/factory/containers/protos/WoodenBox.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.030963355498359713 0.06167619919436529 -0.997615816368816 0.9323662564177073
+  position -1.9296714160700945 2.775485893663627 1.2972834555409136
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Table {
+}
+UR3e {
+  hidden position_0_0 0.20004115020372906
+  hidden rotation_1 0 0 1 0.7000650606841506
+  hidden position_1_0 -1.1999808836874866
+  hidden rotation_2 0 1 0 0.8708253810474308
+  hidden position_2_0 1.4000054988613568
+  hidden rotation_3 0 1 0 1.9000065185226238
+  hidden position_3_0 0.49999634123398007
+  hidden rotation_4 0 1 0 2.5707938841708304
+  hidden position_4_0 1.200000069911073
+  hidden rotation_5 0 0 0.9999999999999999 1.6999997188798222
+  hidden position_5_0 0.1000000129293141
+  hidden rotation_6 0 1 0 0.10000001292931285
+  translation 0 0 1.02
+  controller "ur3testcontroller"
+}
+WoodenBox {
+  translation 0 0 0.89
+  size 0.2 0.2 0.3
+}

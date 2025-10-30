@@ -1,0 +1,121 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/tables/protos/Table.proto"
+EXTERNPROTO "../protos/UR3e.proto"
+EXTERNPROTO "../protos/WoodenBox.proto"
+EXTERNPROTO "../protos/Robotiq2f85Gripper.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/festo/robotino3/protos/Robotino3Webcam.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Cardboard.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.2938256735268569 0.09998688696443835 -0.9506151145503894 2.5158521621236374
+  position 0.8534004946238504 1.0518609105427705 1.9564945143202905
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Table {
+}
+UR3e {
+  hidden position_0_0 -1.2231703654798662
+  hidden rotation_1 0 0 -1 0.7231464550100104
+  hidden position_1_0 -2.103881628387897
+  hidden linearVelocity_1 6.391724027050327e-14 -4.715613326870345e-14 6.091988129205014e-14
+  hidden angularVelocity_1 -1.0135917354360604e-09 -1.156327744217636e-09 -1.7551420216865208e-10
+  hidden rotation_2 0 -1 0 0.03307536365355686
+  hidden position_2_0 -0.1885220526819052
+  hidden linearVelocity_2 -3.4436679749252355e-06 3.0394646564238248e-06 -1.5200102141268664e-07
+  hidden angularVelocity_2 -2.4927404021230443e-05 -2.824236382163053e-05 2.4206074979985995e-10
+  hidden rotation_3 0 -1 0 0.3085260832717602
+  hidden position_3_0 -3.6983355616155826
+  hidden linearVelocity_3 -1.2200154585034274e-05 1.0768110043621379e-05 -2.823460846835514e-06
+  hidden angularVelocity_3 -4.673003164716213e-05 -5.29443983560707e-05 9.247770219780225e-10
+  hidden rotation_4 0 -0.9999999999999999 0 1.6275380186787511
+  hidden position_4_0 6.283594903177273
+  hidden linearVelocity_4 -1.751294505788495e-05 1.5457265935897223e-05 -5.34291792953133e-06
+  hidden angularVelocity_4 -5.221768603893046e-05 -5.91618303943786e-05 1.4087157282354952e-09
+  hidden rotation_5 0 0 -1 5.782776062213168
+  hidden position_5_0 6.674789051254395
+  hidden linearVelocity_5 -1.7512931299306022e-05 1.5457253801612784e-05 -5.342915695741146e-06
+  hidden angularVelocity_5 -5.755473142254743e-05 -5.445116525688473e-05 -2.9943400273430842e-06
+  hidden translation_6 0.0030516014075101807 3.0249325994838276e-05 0.09724899498027126
+  hidden rotation_6 -3.819791959241298e-05 -0.9999999990525801 2.0874833736326445e-05 5.891572656442908
+  hidden linearVelocity_6 -1.3771495494831908e-05 1.1864747210695775e-05 -1.1972564188016968e-05
+  hidden angularVelocity_6 -5.7983935099728834e-05 -5.476981551805764e-05 -2.730629909626099e-06
+  hidden position_7_0 9.06108359112999e-09
+  hidden position_7_1 0.03794121749058603
+  hidden position_7_2 1.0795516728833626e-08
+  hidden position_7_3 0.0034108224144581145
+  hidden rotation_8 7.397907262108117e-16 4.530541573520391e-09 1 3.141593
+  hidden linearVelocity_8 -1.1511499751482051e-05 9.634282439355425e-06 -1.5225841920601385e-05
+  hidden angularVelocity_8 -5.798393463558889e-05 -5.476981504054768e-05 -2.73062856422646e-06
+  hidden position_9_0 -0.05987664260208253
+  hidden rotation_10 -1 0 0 0.05987664260208071
+  hidden linearVelocity_10 -9.869079727135235e-06 7.90407015352962e-06 -1.5397966214039054e-05
+  hidden angularVelocity_10 -5.798266017399094e-05 -5.476859420089793e-05 -2.727077300093968e-06
+  hidden rotation_12 3.2856089593439367e-09 0.01896947089602068 0.9998200633983724 3.141592999937668
+  hidden position_12_0 -0.09781792815354484
+  hidden linearVelocity_12 -1.146035632104983e-05 9.431392955032671e-06 -1.224078431102342e-05
+  hidden angularVelocity_12 -5.7983507172318964e-05 -5.476940554764519e-05 -2.729437400372097e-06
+  hidden linearVelocity_13 -1.1993468428631911e-05 9.75406565019745e-06 -7.392370492751526e-06
+  hidden angularVelocity_13 -5.798393475224425e-05 -5.4769815235705816e-05 -2.730628973849862e-06
+  hidden position_14_0 0.0175039789547593
+  hidden rotation_15 1 0 0 0.017503978954752333
+  hidden linearVelocity_15 -1.0451924518821485e-05 8.06641043920541e-06 -6.276832781018988e-06
+  hidden angularVelocity_15 -5.7982356612317545e-05 -5.4768303400503914e-05 -2.7262314255865807e-06
+  hidden rotation_17 1 0 0 0.003410822414455429
+  hidden position_17_0 0.014093020587106805
+  hidden linearVelocity_17 -1.158436717452071e-05 9.462161496898796e-06 -1.0226186222844166e-05
+  hidden angularVelocity_17 -5.798365744001766e-05 -5.4769549574214e-05 -2.729856227854457e-06
+  translation 0 0 0.94
+  controller "ur3e_gamepad"
+  toolSlot [
+    Robotiq2f85Gripper {
+      rotation 1 0 0 -1.5708
+    }
+  ]
+  camSlot [
+    Robotino3Webcam {
+      translation -3.2319e-05 0.20524500000000007 0.9371271127257372
+      rotation -7.437317691176865e-06 0.7070757804970856 0.7071377804778385 -3.1415853071795814
+      name "cam1"
+    }
+  ]
+}
+WoodenBox {
+  translation -0.001097722121518065 -0.05092149447058454 0.8380380000000002
+  rotation 0.007576656311678327 0.7070864849080108 0.7070864849080116 3.126439630918728
+  size 0.2 0.2 0.2
+  mass 5
+}
+Floor {
+}
+Solid {
+  translation 0.0019768499980250325 0.384582640205685 0.7649607599999998
+  rotation 2.1757933789991297e-07 -0.9999999999999527 2.1757933795159225e-07 1.5707963267949436
+  children [
+    Shape {
+      appearance Cardboard {
+        colorOverride 0.3 0.9 0.2
+      }
+      geometry Box {
+        size 0.05 0.05 0.05
+      }
+    }
+  ]
+  boundingObject Box {
+    size 0.05 0.05 0.05
+  }
+  physics Physics {
+    density -1
+    mass 0.1
+  }
+  linearVelocity -5.884460952680115e-17 -3.8521132724952415e-17 1.1368683772161601e-15
+  angularVelocity 1.3322676295501906e-15 -2.6645352591003725e-15 1.1281771122149594e-16
+}
