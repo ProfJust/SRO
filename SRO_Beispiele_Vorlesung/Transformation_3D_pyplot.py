@@ -43,7 +43,7 @@ def transform_point_3d(matrix, point):
 points_3d = np.array([[0, 0, 0], [1, 0, 0]]) # , [1, 1, 0], [0, 1, 0]
 
 # erstelle homogene Transformationsmatrix, für Verschiebung um 2 entlang der X-Achse und 1 na Y-Achse
-transformM = create_homogeneous_3d(0, 0, 1.57, 0, 0, 0)   #(angle_x, angle_y, angle_z, tx, ty, tz)
+transformM = create_homogeneous_3d(0, 0, 0.6, 2, 1, 0)   #(angle_x, angle_y, angle_z, tx, ty, tz)
 print("Transformationsmatrix: \n",transformM)
 
 # Transformiere die Punkte
