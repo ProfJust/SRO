@@ -50,11 +50,13 @@ def contour_center(cnt: np.ndarray) -> Tuple[int, int]:
     cx, cy = pts.mean(axis=0)
     return int(cx), int(cy)
 
+
 def find_contours(mask: np.ndarray) -> List[np.ndarray]:
     # cv2.findContours: unterschiedliche Rückgabe je nach OpenCV-Version
     found = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = found[0] if len(found) == 2 else found[1]
     return contours
+
 
 def draw_results(bgr: np.ndarray, contours: List[np.ndarray], all_objects: bool) -> Tuple[np.ndarray, List[Tuple[int,int,int]]]:
     """
