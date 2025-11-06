@@ -10,7 +10,7 @@ import robotiq_gripper
 
 import time
 
-ROBOT_IP = "192.168.0.3"
+ROBOT_IP = "192.168.0.11"
 def log_info(gripper):
     print(f"Pos: {str(gripper.get_current_position()): >3}  "
           f"Open: {gripper.is_open(): <2}  "
@@ -48,7 +48,15 @@ if __name__ == '__main__':
     rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
     
     new_q = actual_q
-    new_q[0] = new_q[0] + deg2rad(50)  # Änderung Gelenk[0] = Base?? um 50° => Radian
+    print(new_q)
+    new_q[0] = new_q[0] - 1  # Änderung Gelenk[0] = Base 
+    print(new_q)
+    rtde_c.moveJ(new_q, 0.5, 0.3)
+
+    new_q = actual_q
+    print(new_q)
+    new_q[0] = new_q[0] + 1  # Änderung Gelenk[0] = Base 
+    print(new_q)
     rtde_c.moveJ(new_q, 0.5, 0.3)
 
 
