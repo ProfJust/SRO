@@ -7,8 +7,8 @@ from PyQt6.QtWidgets import QMainWindow, QLabel, QGridLayout, QWidget
 from PyQt6.QtCore import QSize    
 
 class HelloWindow(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
+    def __init__(self):  # Konstruktor
+        QMainWindow.__init__(self)  # Konstruktor Elternklasse
 
         self.setMinimumSize(QSize(240, 80))    
         self.setWindowTitle("WHS - Campus Bocholt")
@@ -26,6 +26,6 @@ class HelloWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    mainWin = HelloWindow()
+    mainWin = HelloWindow()  # Instanz der Klasse bilden
     mainWin.show()
     sys.exit( app.exec() )
