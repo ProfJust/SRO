@@ -1,18 +1,13 @@
 # SRO_openCV_sw04_ROI.py
 # .......................................
 # Python program to explain Region of Interes ROI
-#
 # .......................................
-# edited WHS, OJ, 15.11.2024
-
+# edited WHS, OJ, 09.11.2025
 import cv2 as cv
 
 # lese Bild von Festplatte
 img = cv.imread(r'C:\mySciebo\_SRO\UR_Programme PC Python RTDE\SRO_OpenCV\bild_von_webcam.png')
-
-# 
-y = 380
-x = 440
+y = 380; x = 440
 # waehle eine Region of Interest an Punkt:
 # (y, x) mit Dimension 50x50 Pixel
 region_of_interest = img[y:y+90, x:x+180]
