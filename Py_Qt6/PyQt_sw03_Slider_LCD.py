@@ -1,20 +1,18 @@
-#!/usr/bin/env python3
 # ---------------------------------------------------------------------
-# pyqt_sw07_LCD_Slider.py
+# PyQt_sw03_Slider_LCD.py
 # Beispiel fuer Signal Slot Konzept
 # ---------------------------------------------------------------------
-# -*- coding: utf-8 -*-
-
-from PyQt6.QtWidgets import (QWidget, QSlider,
-                             QLCDNumber, QApplication, QPushButton)
+from PyQt6.QtWidgets import (
+    QWidget, QSlider, QLCDNumber,
+    QApplication, QPushButton, QHBoxLayout, QVBoxLayout
+)
 from PyQt6.QtCore import Qt
 import sys
 
-
 class MainWindow(QWidget):
     def __init__(self, parent=None):
-        super(MainWindow, self).__init__(parent)
-        # --- Slider erstellen -----
+        super().__init__(parent)
+
         self.mySlider = QSlider(Qt.Orientation.Horizontal, self)
         self.mySlider.setFocusPolicy(Qt.FocusPolicy.NoFocus)
         self.mySlider.setGeometry(30, 40, 180, 30)  # x,y,w,h
@@ -45,21 +43,19 @@ class MainWindow(QWidget):
         self.setWindowTitle('PyQt6 - Slider LCD')
         self.show()
 
-    # --- Die beiden Slot-Methoden
+    # --- Slot Methoden mit Wertebegrenzung ---
     def plus(self):
-        wert = self.mySlider.value()  # Slider Wert holen
-        wert = wert+1
-        self.mySlider.setValue(wert)  # Slider Wert setzen
+        wert = self.mySlider.value()
+        if wert < self.mySlider.maximum():
+            self.mySlider.setValue(wert + 1)
 
     def minus(self):
         wert = self.mySlider.value()
-        wert = wert-1
-        self.mySlider.setValue(wert)
-
+        if wert > self.mySlider.minimum():
+            self.mySlider.setValue(wert - 1)
 
 if __name__ == '__main__':
-
     app = QApplication(sys.argv)
     mw = MainWindow()
+    mw.show()
     sys.exit(app.exec())
-
