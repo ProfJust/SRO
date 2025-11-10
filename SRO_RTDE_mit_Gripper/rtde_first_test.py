@@ -35,7 +35,7 @@ def deg2rad(grad):
 
 # ---- main ----
 if __name__ == '__main__':
-    input("Gripper startet Bewegeung nach Eingabe beliebiger Taste")
+    input("Gripper startet Bewegeung nach Betätigung Enter Taste")
     gripper_first_test()
 
     rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
