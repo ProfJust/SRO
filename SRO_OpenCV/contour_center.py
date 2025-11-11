@@ -20,7 +20,7 @@ python contour_center.py -i bild.png -o out.png    # Ergebnisbild speichern
 """
 
 
-import argparse
+import ar
 import cv2
 import numpy as np
 import sys
