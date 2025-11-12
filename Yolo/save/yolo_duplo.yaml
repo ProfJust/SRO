@@ -1,0 +1,5 @@
+train: C:/mySciebo/_SRO/Yolo/save/images
+val: C:/mySciebo/_SRO/Yolo/save/images  # gib ggf. einen Validierungsordner an! 
+names:
+  0: duplo
+  # weitere Klassen nach Bedarf eintragen
