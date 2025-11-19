@@ -7,7 +7,7 @@ import cv2 as cv
 
 print("Lese Bild von Kamera und speichere als Datei ")
 # -- initialisiere WebCam --
-CAMERA_INDEX = 0
+CAMERA_INDEX = 1
 cam = cv.VideoCapture(CAMERA_INDEX, cv.CAP_DSHOW) 
 # cv.CAP_DSHOW => dauert nicht so lange bis Bild von USB-Kamera kommt
 print("Kamera initialisiert")
