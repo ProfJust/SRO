@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+
+ TO BE TESTED - FILE under HEAVY DEVELOPMENT
 PyQt6 GUI zur Transformation von Bildkoordinaten (Pixel + Tiefe)
 über Kamerakoordinaten -> Roboter-Koordinaten (UR + RTDE).
 

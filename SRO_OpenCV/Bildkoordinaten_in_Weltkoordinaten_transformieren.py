@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """
+TO BE TESTED - FILE under HEAVY DEVELOPMENT
+
 PyQt6 GUI zur Transformation von Kamera-Koordinaten -> Roboter-Koordinaten
 und zum Testen der Transformation mit einem UR-Roboter via ur_rtde.
 
