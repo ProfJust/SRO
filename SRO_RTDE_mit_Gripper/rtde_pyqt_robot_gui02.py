@@ -21,10 +21,10 @@ ROBOT_IP = "192.168.0.3"
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        # self.rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
-        # self.rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
-        # self.gripper = robotiq_gripper.RobotiqGripper()
-        # self.gripper.connect(ROBOT_IP, 63352)
+        self.rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
+        self.rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
+        self.gripper = robotiq_gripper.RobotiqGripper()
+        self.gripper.connect(ROBOT_IP, 63352)
 
         self.setMinimumSize(QSize(400, 400))    
         self.setWindowTitle("SRO - Universal Robot GUI")
