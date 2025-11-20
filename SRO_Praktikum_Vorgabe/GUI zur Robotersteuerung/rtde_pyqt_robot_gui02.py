@@ -1,5 +1,7 @@
-# rtde_pyqt_get_robot_pose.py
-# Tested by OJ 18.12.24 on UR5e
+# rtde_pyqt_robot_gui2.py
+# --------------------------------
+# Last tested by OJ 18.12.24 on UR5e
+# GUI vor real Universal Robot using ur_rtde
 # https://github.com/githubuser0xFFFF/py_robotiq_gripper/tree/master
 # https://sdurobotics.gitlab.io/ur_rtde/examples/examples.html
 
@@ -10,7 +12,7 @@ import robotiq_gripper
 # import time
 
 import sys
-from PyQt6 import QtWidgets, QtCore
+from PyQt6 import QtWidgets, QtCore # ggf. pip install PyQt6
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import QSize   
 from PyQt6.QtWidgets import QPushButton 
@@ -21,10 +23,10 @@ ROBOT_IP = "192.168.0.3"
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-        # self.rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
-        # self.rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
-        # self.gripper = robotiq_gripper.RobotiqGripper()
-        # self.gripper.connect(ROBOT_IP, 63352)
+        self.rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)
+        self.rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
+        self.gripper = robotiq_gripper.RobotiqGripper()
+        self.gripper.connect(ROBOT_IP, 63352)
 
         self.setMinimumSize(QSize(400, 400))    
         self.setWindowTitle("SRO - Universal Robot GUI")
