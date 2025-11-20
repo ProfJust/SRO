@@ -8,8 +8,8 @@ allgemein:
     python contour_center.py -i path/zum/bild.png
 
 hier: in SRO
-    cd .\SRO_OpenCV\
-    python contour_center.py -i Bild01_bw_Konturen.png
+    1.)Verzeichnis wechseln:     > cd .\SRO_OpenCV\
+    2.) AUfruf mit Arfumenten:   > python contour_center.py -i Bild01_bw_Konturen.png
   oder 
     python contour_center.py -i Bild01_bw_Konturen.png --all
 
@@ -20,7 +20,8 @@ python contour_center.py -i bild.png -o out.png    # Ergebnisbild speichern
 """
 
 
-import ar
+#import ar   # ggf.  pip install ar
+import argparse
 import cv2
 import numpy as np
 import sys
