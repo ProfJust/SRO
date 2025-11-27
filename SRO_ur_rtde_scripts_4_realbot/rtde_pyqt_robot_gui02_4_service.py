@@ -1,7 +1,5 @@
-# rtde_pyqt_robot_gui2.py
-# --------------------------------
-# Last tested by OJ 18.12.24 on UR5e
-# GUI vor real Universal Robot using ur_rtde
+# rtde_pyqt_get_robot_pose.py
+# Tested by OJ 18.12.24 on UR5e
 # https://github.com/githubuser0xFFFF/py_robotiq_gripper/tree/master
 # https://sdurobotics.gitlab.io/ur_rtde/examples/examples.html
 
@@ -12,13 +10,13 @@ import robotiq_gripper
 # import time
 
 import sys
-from PyQt6 import QtWidgets, QtCore # ggf. pip install PyQt6
+from PyQt6 import QtWidgets, QtCore
 from PyQt6.QtWidgets import QMainWindow
 from PyQt6.QtCore import QSize   
 from PyQt6.QtWidgets import QPushButton 
 from PyQt6.QtWidgets import QLabel
 
-ROBOT_IP = "192.168.0.3"
+ROBOT_IP = "192.168.0.17"
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -130,10 +128,15 @@ class MainWindow(QMainWindow):
 
     def getTcpPoseSlot(self):
         print('Get Actual TcpPose from Robot')
-        self.pose = self.rtde_r.getActualTCPPose() 
+        self.pose = self.rtde_r.getActualTCPPose()
         # get actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz),
         # where rx, ry and rz is a rotation vector representation of the tool orientation """
         print(self.pose)
+        
+        print('Get Actual Joint Angles from Robot in radian')
+        actual_q = self.rtde_r.getActualQ()  # in radian
+        print(actual_q)
+        
        # ui.lblStatus.setText( str(ui.spielZugNr)+'.Zug ')
         x = round(self.pose[0]*1000, 3) #  m => mm
         self.lbl_pose_x.setText('x: '+ str(x) + ' mm' )

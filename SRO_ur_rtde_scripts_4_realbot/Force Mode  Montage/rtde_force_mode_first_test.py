@@ -10,7 +10,8 @@
 import rtde_control      # Steuerungsfunktionen des Roboters über RTDE
 import rtde_receive
 import math
-ROBOT_IP = "192.168.0.3"   # IP des Roboters hier UR3e
+#ROBOT_IP = "192.168.0.3"   # IP des Roboters hier UR3e
+ROBOT_IP = "192.168.0.17" 
 rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)  # Verbindung herstellen
 rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
 
@@ -40,12 +41,7 @@ limits = [1.0, 1.0, 1.0, 1, 1, 1]
 # Zeitintervall für die Steuerungsschleife setzen 
 dt = 1.0/500  # 2ms
 
-# Anfangsposition der Gelenke des Roboters.
-joint_q_rad = [1.2411526441574097, -0.7552269262126465, 0.858840290700094, -1.6968580685057582, -1.5734437147723597, -3.475983206425802]
-print(" Joints in RAD ")
-print(joint_q_rad)   
-input("Roboter startet Bewegung nach Eingabe beliebiger Taste") 
-rtde_c.moveJ(joint_q_rad, 0.5, 0.3)
+# 
 
 input("Move Robot to Contact ?")
 speed = [0, 0, -0.050, 0, 0, 0]
@@ -85,7 +81,6 @@ try:
                 pose[3],
                 pose[4], 
                 pose[5]], 0.1, 0.1)
-
    
     rtde_c.stopScript()
     print("\n Ende \n")

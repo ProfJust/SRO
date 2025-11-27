@@ -15,7 +15,7 @@ import time
 import rtde_control
 import rtde_receive
 
-ROBOT_IP = "192.168.0.3"  # setze IP passend
+ROBOT_IP = "192.168.0.17"  # setze IP passend
 
 def generate_spiral_points(center_pose, radius, steps, revolutions, height_step):
     points = []
@@ -81,11 +81,11 @@ class SpiralForceGUI(QWidget):
 
         task_frame = pose
         selection_vector = [0, 0, 1, 0, 0, 0]
-        wrench = [0, 0, -force, 0, 0, 0]
+        wrench = [0, 0, force, 0, 0, 0]
         force_type = 2
         limits = [10, 10, 5, 1, 1, 1]
 
-        rtde_c.forceModeStart(task_frame, selection_vector, wrench, force_type, limits)
+        rtde_c.forceMode(task_frame, selection_vector, wrench, force_type, limits)
         for p in points:
             rtde_c.moveL(p, 0.05, 0.1)
             time.sleep(0.1)
