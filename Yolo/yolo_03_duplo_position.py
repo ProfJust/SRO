@@ -6,6 +6,7 @@
 from ultralytics import YOLO
 import cv2
 import math 
+import os
 
 # initialisiere WebCam
 CAMERA_INDEX = 0
@@ -19,7 +20,14 @@ cap.set(3, 640)
 cap.set(4, 480)
 
 # model
-model = YOLO("C:/mySciebo/_SRO/Yolo/yolov8_duplo_custom9/weights/best.pt")   
+# Python sucht das File im aktuellen Arbeitsordner, 
+# nicht unbedingt im Ordner des Skripts.
+# ==> In den Arbeitsordner wechseln 
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
+
+
+model = YOLO("./yolov8_duplo_custom9/weights/best.pt")   
 # object classes
 classNames = ["duplo_4_green"]
         
@@ -63,6 +71,7 @@ while True:
             cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
 
     cv2.imshow('Webcam', img)
+    print("- Ende Programm mit STRG+C -")
     if cv2.waitKey(1) == ord('q'):
         break
 
