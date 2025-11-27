@@ -128,10 +128,15 @@ class MainWindow(QMainWindow):
 
     def getTcpPoseSlot(self):
         print('Get Actual TcpPose from Robot')
-        self.pose = self.rtde_r.getActualTCPPose() 
+        self.pose = self.rtde_r.getActualTCPPose()
         # get actual Cartesian coordinates of the tool: (x,y,z,rx,ry,rz),
         # where rx, ry and rz is a rotation vector representation of the tool orientation """
         print(self.pose)
+        
+        print('Get Actual Joint Angles from Robot in radian')
+        actual_q = self.rtde_r.getActualQ()  # in radian
+        print(actual_q)
+        
        # ui.lblStatus.setText( str(ui.spielZugNr)+'.Zug ')
         x = round(self.pose[0]*1000, 3) #  m => mm
         self.lbl_pose_x.setText('x: '+ str(x) + ' mm' )

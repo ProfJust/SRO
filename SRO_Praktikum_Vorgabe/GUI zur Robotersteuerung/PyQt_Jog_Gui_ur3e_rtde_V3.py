@@ -1,3 +1,5 @@
+# Tested OK an Roboter 03: UR3e und ur_rtde 2025_11_27
+
 import sys
 import math
 import csv

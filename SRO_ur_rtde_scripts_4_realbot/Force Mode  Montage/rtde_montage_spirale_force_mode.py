@@ -15,7 +15,7 @@ import time
 import rtde_control
 import rtde_receive
 
-ROBOT_IP = "192.168.0.2"  # setze IP passend
+ROBOT_IP = "192.168.0.3"  # setze IP passend
 
 def generate_spiral_points(center_pose, radius, steps, revolutions, height_step):
     points = []
