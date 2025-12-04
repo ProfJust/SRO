@@ -14,25 +14,18 @@ import rtde_receive
 import time
 import numpy as np
 import math
-#ROBOT_IP = "192.168.0.3"   # IP des Roboters hier UR3e
-ROBOT_IP = "192.168.0.17" 
+ROBOT_IP = "192.168.0.17"   # IP des Roboters hier UR3e
 rtde_c = rtde_control.RTDEControlInterface(ROBOT_IP)  # Verbindung herstellen
 rtde_r = rtde_receive.RTDEReceiveInterface(ROBOT_IP)
 
 # Kraftsteuerung konfigurieren
-task_frame = [0, 0, 0, 0, 0, 0]  # z.B. im Basis-Frame oder TCP-Frame
+task_frame = [0, 0, 0, 0, 0, 0]  
 selection_vector = [0, 0, 1, 0, 0, 0]  # nur Z kraftgeregelt
-
 wrench = [0, 0, -20, 0, 0, 0]          # 20 N nach unten
 force_type = 2                         # „force“ Mode
-# limits = [0.1, 0.1, 0.1, 0.2, 0.2, 0.2]  # max. Abweichungen
-#limits = [0.02, 0.02, 0.01, 0.2, 0.2, 0.2]  # max. 1 cm in Z
-#Z‑Limit nicht zu groß wählen, damit der Roboter nicht weit „wegfedert“:
-#limits = [0.01, 0.01, 0.001, 0.2, 0.2, 0.2]  # max. 1 mm in Z
+# max. Abweichungen in den Freiheitsgraden
+# Z‑Limit nicht zu groß wählen, damit der Roboter nicht weit „wegfedert“:
 limits = [0.02, 0.02, 0.02, 0.2, 0.2, 0.2]  # 2 cm in Z
-
-
-
 
 try:
     input("Move Robot to Contact ?")
@@ -42,15 +35,12 @@ try:
     input("Move Robot Force Mode ?")
     rtde_c.forceMode(task_frame, selection_vector, wrench, force_type, limits)
     center = rtde_r.getActualTCPPose()      # [x, y, z, Rx, Ry, Rz]
-    # radius_step = 0.0002                    # 0.2 mm pro Umdrehung
-    # angle_step = 0.01                        # rad-Inkrement
-    radius_step = 0.00002   # 0.1 mm pro rad
+    radius_step = 0.00002   # 0.1 mm pro Umdrehung
     angle_step  = 0.0008
-    # kleinere Winkelinkremente
-    max_angle = 50 * 2 * 3.14159           # z.B. 20 Umdrehungen
-    z_const = center[2]
+    max_angle = 20 * 2 * 3.14159   # z.B. 20 Umdrehungen
+    z_const = center[2]  # konstante Z-Höhe, Kraftregelung „federt“ Kontakt aus
 
-    angle = 0.0
+    angle = 0.0  # Startwinkel
     while angle < max_angle:
         r = radius_step * angle
         dx = r * math.cos(angle)
@@ -61,9 +51,6 @@ try:
         target[1] += dy
         target[2] = z_const  # Z bleibt, Kraftregelung „federt“ Kontakt aus
 
-        #rtde_c.servoL(target, 0.5, 0.5, 0.02, 0.1, 300)  # feine Schritte, hohe Frequenz
-        # langsamer und weicher
-        # rtde_c.servoL(target, 0.2, 0.2, 0.1, 0.1, 100)  # v_gain, a_gain, time, lookahead_time, gain
         rtde_c.servoL(target,
               0.1,   # v_gain
               0.1,   # a_gain
@@ -73,6 +60,7 @@ try:
         
         angle += angle_step
 
+        # Abbruchbedingung: Prüfen, ob der Roboter sich weit genug in Z bewegt hat
         actualPose = rtde_r.getActualTCPPose()  
         movedZ = actualPose[2] - center[2] # Z-Achse bewegt?
         print(" moved Z = ", movedZ)
@@ -81,10 +69,12 @@ try:
             print(" Z limit reached, stopping force mode ")
             break
 
-    # Zum Schluss wird der Kraftmodus beendet, und das Skript wird gestoppt, wodurch die Ausführung beendet wird.
+    # Ausführung beenden
     rtde_c.servoStop(2.0)
     rtde_c.forceModeStop()
 
+
+    # Roboter anheben für weitere Tests
     input("Move Robot up ?")
     # get actual pose
     pose = rtde_r.getActualTCPPose() 
