@@ -1,6 +1,6 @@
 import serial
 
-PORT = "COM4"          # anpassen: z.B. "COM4" oder "/dev/ttyUSB0"
+PORT = "COM17"          # anpassen: z.B. "COM4" oder "/dev/ttyUSB0"
 BAUDRATE = 115200      # wie beim ESP32/MicroPython
 
 def main():
