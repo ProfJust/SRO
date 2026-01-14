@@ -7,6 +7,8 @@ from robodk.robolink import Robolink       # import the robolink library (bridge
 from robodk.robomath import transl      # import the robotics toolbox
 RDK = Robolink()                    # establish a link with the simulator
 robot = RDK.Item('UR3e')      # retrieve the robot by name
+if not robot.Valid():
+    raise Exception('No robot selected or available')
 robot.setJoints([0, 0, 0, 0, 0, 0])      # set all robot axes to zero
 
 target = RDK.Item('Target 3')         # retrieve the Target item
@@ -22,3 +24,4 @@ robot.Pause(2000)
 approach2 = target.Pose() * transl(0, 100, 0)
 robot.MoveL(approach2)
 
+S
