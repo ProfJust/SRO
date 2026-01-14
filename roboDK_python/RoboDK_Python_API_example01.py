@@ -1,3 +1,8 @@
+""" Erstes Python Programm zur Steuerung des simulierten Roboters in RoboDK
+    OJ am 14.01.2026
+    File: UR3e mit Robotiq First Test.rdk
+    https://robodk.com/doc/en/PythonAPI/robodk.html#robolink-py"""
+
 from robodk.robolink import Robolink       # import the robolink library (bridge with RoboDK)
 from robodk.robomath import transl      # import the robotics toolbox
 RDK = Robolink()                    # establish a link with the simulator
