@@ -23,12 +23,24 @@ def vorwaertskinematik(theta1_grad, theta2_grad):
     return x1, y1, x2, y2
 
 
+def inverse_kinematik(x, y, ellbogen_oben=True):
+    """Eine der zwei IK-Lösungen für die TCP-Position (x, y)."""
+    c2 = (x*x + y*y - L1*L1 - L2*L2) / (2*L1*L2)
+    if not -1.0 - 1e-9 <= c2 <= 1.0 + 1e-9:
+        return None
+    c2 = max(-1.0, min(1.0, c2))
+    t2 = math.acos(c2) * (1 if ellbogen_oben else -1)
+    t1 = math.atan2(y, x) - math.atan2(L2*math.sin(t2), L1 + L2*math.cos(t2))
+    return math.degrees(t1), math.degrees(t2)
+
+
 class RoboterAnsicht(QWidget):
     def __init__(self):
         super().__init__()
         self.theta1 = 35
         self.theta2 = 55
         self.setMinimumSize(460, 440)
+        self.ziel = None
 
     def set_winkel(self, t1, t2):
         self.theta1, self.theta2 = t1, t2
@@ -58,6 +70,13 @@ class RoboterAnsicht(QWidget):
         for radius in (L1 + L2, abs(L1 - L2)):
             r = radius * massstab
             painter.drawEllipse(p(0, 0), r, r)
+
+        if self.ziel is not None:
+            zx, zy = self.ziel
+            painter.setPen(QPen(QColor('#b91c1c'), 1.5, Qt.PenStyle.DashLine))
+            painter.setBrush(Qt.BrushStyle.NoBrush)
+            painter.drawEllipse(p(zx, zy), 11, 11)
+            painter.drawText(p(zx, zy) + QPointF(14, 20), 'Ziel')
 
         x1, y1, x2, y2 = vorwaertskinematik(self.theta1, self.theta2)
         painter.setPen(QPen(QColor('#2286c3'), 10, Qt.PenStyle.SolidLine,
@@ -113,6 +132,16 @@ class Hauptfenster(QMainWindow):
 
         self.ergebnis = QLabel()
         self.ergebnis.setStyleSheet('font-size: 15px; background: #eaf4fc; padding: 14px;')
+        links.addWidget(QLabel('Zwei IK-Lösungen für denselben TCP-Zielpunkt:'))
+        oben = QPushButton('Lösung 1 – Ellbogen oben')
+        unten = QPushButton('Lösung 2 – Ellbogen unten')
+        oben.clicked.connect(lambda: self.ik_loesung(True))
+        unten.clicked.connect(lambda: self.ik_loesung(False))
+        links.addWidget(oben)
+        links.addWidget(unten)
+        self.hinweis = QLabel('Zielpunkt: Position der Startkonfiguration (35°, 55°).')
+        self.hinweis.setWordWrap(True)
+        links.addWidget(self.hinweis)
         links.addWidget(QLabel('Ergebnis der Vorwärtskinematik:'))
         links.addWidget(self.ergebnis)
         zurueck = QPushButton('Winkel zurücksetzen')
@@ -123,7 +152,23 @@ class Hauptfenster(QMainWindow):
 
         self.ansicht = RoboterAnsicht()
         layout.addWidget(self.ansicht, 2)
+        _, _, self.ziel_x, self.ziel_y = vorwaertskinematik(35, 55)
+        self.ansicht.ziel = (self.ziel_x, self.ziel_y)
         self.aktualisieren()
+
+    def ik_loesung(self, ellbogen_oben):
+        loesung = inverse_kinematik(self.ziel_x, self.ziel_y, ellbogen_oben)
+        if loesung is None:
+            self.hinweis.setText('Zielpunkt ist nicht erreichbar.')
+            return
+        t1, t2 = loesung
+        # QSlider verwendet ganze Grad; daher kleine Rundungsabweichung möglich.
+        self.schieber[0].setValue(round(t1))
+        self.schieber[1].setValue(round(t2))
+        self.hinweis.setText(
+            f'IK: θ₁ = {t1:.2f}°, θ₂ = {t2:.2f}°; '
+            f'Ziel X = {self.ziel_x:.1f} mm, Y = {self.ziel_y:.1f} mm. '
+            'Schieberegler runden auf ganze Grad.')
 
     def zuruecksetzen(self):
         self.schieber[0].setValue(35)
