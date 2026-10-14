@@ -1,0 +1,53 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/universal_robots/protos/UR3e.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotiq/protos/Robotiq2f85Gripper.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.08956117592212537 0.2607370647231788 -0.9612465754669751 0.6863668098269298
+  position -0.9003800178617791 0.9747496153282477 0.5091540687500847
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 2 2
+}
+UR3e {
+  hidden translation_1 0 0 0.152
+  hidden rotation_1 0 0 0.9999999999999999 4.30781101590817e-05
+  hidden translation_2 0 0.12 0
+  hidden rotation_2 0 1 0 1.5708156178002006
+  hidden translation_3 0 -0.093 0.244
+  hidden rotation_3 0 -0.9999999999999999 0 0.4999977996546759
+  hidden translation_4 0 0 0.213
+  hidden rotation_4 0 1 0 1.5707847370184267
+  hidden translation_5 0 0.104 0
+  hidden rotation_5 0 0 1 0
+  hidden translation_6 0 0 0.085
+  hidden rotation_6 0 1 0 0
+  hidden translation_8 0 -0.030601 0.054904
+  hidden rotation_8 8.660206937422463e-10 0.004999972155518624 0.9999875000610979 3.1415929999956695
+  hidden translation_10 0 0.0061 0.0471
+  hidden rotation_10 -1 0 0 0.009693699988418028
+  hidden translation_12 0 -0.0127 0.06142
+  hidden rotation_12 8.600921038374183e-10 0.004965743430200749 0.999987670620086 3.141592999995729
+  hidden translation_13 0 0.030601 0.054904
+  hidden rotation_13 1 0 0 0.010000013881078872
+  hidden translation_15 0 0.0061 0.0471
+  hidden rotation_15 -1 0 0 0.009471162084070664
+  hidden translation_17 0 0.0127 0.06142
+  hidden rotation_17 0.9999999999999999 0 0 0.009975399951208153
+  controller "EMR26_World1_Controller"
+  toolSlot [
+    Robotiq2f85Gripper {
+      rotation 1 0 0 -1.57097632
+    }
+  ]
+}

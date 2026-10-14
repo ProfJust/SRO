@@ -9,7 +9,7 @@ import math
 import os
 
 # initialisiere WebCam
-CAMERA_INDEX = 0
+CAMERA_INDEX = 1  # 0 = eingebaute Kamera, 1 = USB-Kamera
 cap = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW) 
 # was  cap = cv2.VideoCapture(0)
 # cv.CAP_DSHOW => dauert nicht so lange bis Bild von USB-Kamera kommt
